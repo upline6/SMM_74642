@@ -51,7 +51,25 @@ public final class Shell {
                     case 'm':
                         int matrixSizes = scanner.nextInt();
                         int limit = scanner.nextInt();
-                        System.out.println(scanner.next());
+                        int xa = scanner.nextInt();
+                        int xb = scanner.nextInt();
+                        int ya = scanner.nextInt();
+                        int yb = scanner.nextInt();
+                        Matrix matrixA = new Matrix(matrixSizes);
+                        for(int i = 0; i < matrixA.getMatrixSize(); i++) {
+                            for (int j = 0; j < matrixA.getMatrixSize(); j++) {
+                                matrixA.setValue(i, j, i*xa + j*xb);
+                            }
+                        }
+//                        matrixA.printMatrix();
+                        Matrix matrixB = new Matrix(matrixSizes);
+                        for(int i = 0; i < matrixB.getMatrixSize(); i++) {
+                            for (int j = 0; j < matrixB.getMatrixSize(); j++) {
+                                matrixB.setValue(i, j, i*ya + j*yb);
+                            }
+                        }
+                        System.out.println();
+//                        matrixB.printMatrix();
                         break;
                     default: errorMessage("Unknown command.");
                 }
