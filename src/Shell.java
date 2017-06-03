@@ -11,7 +11,8 @@ public final class Shell {
 //        // test
 ////        Matrix m4 = new Matrix(1);
 ////        m4.printMatrix();
-//        Matrix m1 = new Matrix(4, 4,3);
+        Matrix m1 = new Matrix(0);
+        System.out.println(m1.nextPowerOfTwo2(986));
 //        m1.printMatrix();
 ////        m1.printMatrix();
 ////        m1.getQuarterMatrix(0, 0).printMatrix();
@@ -27,6 +28,7 @@ public final class Shell {
 ////        m3 = mo.multStrMethod(m1, m2, 2);
 ////        m3.printMatrix();
 //        // test end
+
         BufferedReader inRead =
                 new BufferedReader(new InputStreamReader(System.in));
         execute(inRead);

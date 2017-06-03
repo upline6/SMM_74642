@@ -58,6 +58,7 @@ public class Matrix {
         }
         return result;
     }
+
     /**
      * This method fills the whole Matrix with zeros.
      */
@@ -75,11 +76,10 @@ public class Matrix {
      * @param i
      * @return
      */
-    private int raiseToPowerOfTwo(int i) {
-        int powerTwo = 2;
-        while (i > powerTwo) {
-            powerTwo *= 2;
-        }
+
+    public int nextPowerOfTwo(int i) {
+        int powerTwo = (int) Math.pow(2, Math.ceil(Math.log(i) / Math.log
+                (2)));
         return powerTwo;
     }
 
