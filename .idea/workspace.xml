@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcbb0cb4-cbfa-4838-9aea-4bf78e5543a2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SMM_74642/Model/Matrix.class" afterPath="$PROJECT_DIR$/out/production/SMM_74642/Model/Matrix.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SMM_74642/Shell.class" afterPath="$PROJECT_DIR$/out/production/SMM_74642/Shell.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Matrix.java" afterPath="$PROJECT_DIR$/src/Model/Matrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Shell.java" afterPath="$PROJECT_DIR$/src/Shell.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,9 +53,13 @@
       <file leaf-file-name="Matrix.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model/Matrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="347">
+              <caret line="94" column="4" lean-forward="false" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
+              <folding>
+                <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+                <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+                <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -644,7 +645,7 @@
       <workItem from="1496150449705" duration="986000" />
       <workItem from="1496228597131" duration="4038000" />
       <workItem from="1496424286074" duration="287000" />
-      <workItem from="1496478775467" duration="10352000" />
+      <workItem from="1496478775467" duration="11232000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1496230153218</created>
@@ -674,11 +675,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496485881139</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implemented expandMatrix">
+      <created>1496495507496</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1496495507496</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75569000" />
+    <option name="totallyTimeSpent" value="76449000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -762,7 +770,8 @@
     <MESSAGE value="inserted matrix creation to shell" />
     <MESSAGE value="implemented school method to the Matrix class" />
     <MESSAGE value="implemented nextPowerOfTwo method with log computing" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented nextPowerOfTwo method with log computing" />
+    <MESSAGE value="implemented expandMatrix" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented expandMatrix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -801,7 +810,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="40" column="4" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
-          <folding />
+          <folding>
+            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -827,7 +840,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="40" column="4" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
-          <folding />
+          <folding>
+            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -853,7 +870,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -879,7 +900,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -905,7 +930,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -931,7 +960,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -957,7 +990,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -975,7 +1012,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1479">
           <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1009,7 +1050,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="87" column="57" lean-forward="false" selection-start-line="87" selection-start-column="57" selection-end-line="87" selection-end-column="57" />
-          <folding />
+          <folding>
+            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1035,7 +1080,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1068,7 +1117,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1097,14 +1150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Math.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="421" column="25" lean-forward="false" selection-start-line="421" selection-start-column="25" selection-end-line="421" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/MatrixOperations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="867">
@@ -1123,11 +1168,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Math.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="642" column="25" lean-forward="false" selection-start-line="642" selection-start-column="25" selection-end-line="642" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="85" column="17" lean-forward="true" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="347">
+          <caret line="94" column="4" lean-forward="false" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
+          <folding>
+            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
+            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

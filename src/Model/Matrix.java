@@ -72,8 +72,11 @@ public class Matrix {
 //        this = new M
 //
 //    }
+
     /**
-     * This method fills the whole Matrix with zeros.
+     *
+     * @param m
+     * @return
      */
     public Matrix expandMatrix(Matrix m) {
         Matrix result = new Matrix(nextPowerOfTwo(m.getMatrixSize()));
@@ -92,8 +95,8 @@ public class Matrix {
     /**
      * This method takes a number i and computes the next bigger integer that
      * is 2^n.
-     * @param i
-     * @return
+     * @param i: input number
+     * @return next bigger integer to the base 2
      */
 
     public int nextPowerOfTwo(int i) {
