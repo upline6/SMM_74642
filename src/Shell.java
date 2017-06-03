@@ -9,10 +9,6 @@ public final class Shell {
 
     public static void main(String[] args) throws IOException{
 //        // test
-////        Matrix m4 = new Matrix(1);
-////        m4.printMatrix();
-        Matrix m1 = new Matrix(0);
-        System.out.println(m1.nextPowerOfTwo2(986));
 //        m1.printMatrix();
 ////        m1.printMatrix();
 ////        m1.getQuarterMatrix(0, 0).printMatrix();
@@ -73,7 +69,7 @@ public final class Shell {
                         System.out.println();
                         matrixB.printMatrix();
                         System.out.println();
-                        Matrix matrixC = matrixA.multSchoolMethod(matrixB);
+                        Matrix matrixC = matrixA.expandMatrix(matrixA);
                         matrixC.printMatrix();
                         break;
                     default: errorMessage("Unknown command.");

@@ -1,5 +1,7 @@
 package Model;
 
+import static javafx.scene.input.KeyCode.M;
+
 public class Matrix {
 
     private int matrixSize;
@@ -40,7 +42,7 @@ public class Matrix {
     }
 
     /**
-     * if condition noch einbauen
+     * if condition noch einbauen, private machen
      * @param m
      * @return
      */
@@ -56,18 +58,35 @@ public class Matrix {
                             (i, j, this.getValue(i, k) * m.getValue(k, j));
                 }
         }
+        System.out.println("School Method used!");
         return result;
     }
 
     /**
+     * if Methode einbauen
+     * @param m
+     * @return
+     */
+//    public Matrix multStrassenMethod(int useSchoolMethod, Matrix m) {
+//        Matrix result = new Matrix(this.getMatrixSize());
+//        this = new M
+//
+//    }
+    /**
      * This method fills the whole Matrix with zeros.
      */
-    public void initializeMatrix() {
-        for(int i = 0; i < matrixSize; i++) {
-            for(int j = 0; j < matrixSize; j++) {
-                matrixContent[i][j] = 0;
+    public Matrix expandMatrix(Matrix m) {
+        Matrix result = new Matrix(nextPowerOfTwo(m.getMatrixSize()));
+        for(int i = 0; i < result.getMatrixSize(); i++) {
+            for(int j = 0; j < result.getMatrixSize(); j++) {
+                if (j < m.getMatrixSize() && i < m.getMatrixSize()) {
+                    result.setValue(i, j, m.getValue(i, j));
+                } else {
+                    result.setValue(i, j, 0);
+                }
             }
         }
+        return result;
     }
 
     /**
