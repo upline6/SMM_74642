@@ -61,7 +61,7 @@ public final class Shell {
                                 matrixA.setValue(i, j, i*xa + j*xb);
                             }
                         }
-//                        matrixA.printMatrix();
+                        matrixA.printMatrix();
                         Matrix matrixB = new Matrix(matrixSizes);
                         for(int i = 0; i < matrixB.getMatrixSize(); i++) {
                             for (int j = 0; j < matrixB.getMatrixSize(); j++) {
@@ -69,7 +69,10 @@ public final class Shell {
                             }
                         }
                         System.out.println();
-//                        matrixB.printMatrix();
+                        matrixB.printMatrix();
+                        System.out.println();
+                        Matrix matrixC = matrixA.multSchoolMethod(matrixB);
+                        matrixC.printMatrix();
                         break;
                     default: errorMessage("Unknown command.");
                 }

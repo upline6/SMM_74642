@@ -10,15 +10,20 @@ public class Matrix {
         matrixContent = new double[matrixSize][matrixSize];
     }
 
-    public Matrix(int size, int xa, int xb){
-        matrixSize = raiseToPowerOfTwo(size);
-        matrixContent = new double[matrixSize][matrixSize];
-        initializeMatrix();
-        for(int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                matrixContent[i][j] = i*xa + j*xb;
-            }
-        }
+    public int getMatrixSize() {
+        return matrixSize;
+    }
+
+    public double getValue(int row, int column) {
+        return matrixContent[row][column];
+    }
+
+    public void setValue(int row, int column, double value) {
+        matrixContent[row][column] = value;
+    }
+
+    private void addToValue(int row, int column, double value) {
+        matrixContent[row][column] += value;
     }
 
     public void printMatrix() {
@@ -34,22 +39,25 @@ public class Matrix {
         }
     }
 
-    public int getMatrixSize() {
-        return matrixSize;
+    /**
+     * if condition noch einbauen
+     * @param m
+     * @return
+     */
+    public Matrix multSchoolMethod(Matrix m) {
+        Matrix result = new Matrix(this.getMatrixSize());
+//        if (this.getMatrixSize() != m.getMatrixSize()) {
+//
+//        }
+        for (int i = 0; i < result.getMatrixSize(); i++) {
+            for (int j = 0; j < result.getMatrixSize(); j++)
+                for (int k = 0; k < result.getMatrixSize(); k++) {
+                    result.addToValue
+                            (i, j, this.getValue(i, k) * m.getValue(k, j));
+                }
+        }
+        return result;
     }
-
-    public double getValue(int row, int column) {
-        return matrixContent[row][column];
-    }
-
-    public void setValue(int row, int column, double value) {
-        matrixContent[row][column] = value;
-    }
-
-    public void addToValue(int row, int column, int value) {
-        matrixContent[row][column] += value;
-    }
-
     /**
      * This method fills the whole Matrix with zeros.
      */
@@ -60,6 +68,7 @@ public class Matrix {
             }
         }
     }
+
     /**
      * This method takes a number i and computes the next bigger integer that
      * is 2^n.

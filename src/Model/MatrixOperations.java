@@ -2,12 +2,6 @@
 //
 //public class MatrixOperations {
 //
-////    public Matrix multStrMethod1 (Matrix a, Matrix b, int limit) {
-////        Matrix result = new Matrix(a.getMatrixSize());
-////        while
-////        return result;
-////    }
-//
 //    /**
 //     * Interim result
 //     * @param a
@@ -59,18 +53,6 @@
 //                            resultQuarter00.getValue(j, k));
 //                }
 //            }
-//        }
-//        return result;
-//    }
-//
-//    public Matrix multSchoolMethod(Matrix a, Matrix b) {
-//        Matrix result = new Matrix(a.getMatrixSize());
-//        for (int i = 0; i < result.getMatrixSize(); i++) {
-//            for (int j = 0; j < result.getMatrixSize(); j++)
-//                for (int k = 0; k < result.getMatrixSize(); k++) {
-//                    result.addToValue
-//                            (i, j, a.getValue(i, k) * b.getValue(k, j));
-//                }
 //        }
 //        return result;
 //    }
