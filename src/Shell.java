@@ -69,7 +69,7 @@ public final class Shell {
                         System.out.println();
                         matrixB.printMatrix();
                         System.out.println();
-                        Matrix matrixC = matrixA.expandMatrix(matrixA);
+                        Matrix matrixC = matrixA.multStr(limit, matrixB);
                         matrixC.printMatrix();
                         break;
                     default: errorMessage("Unknown command.");

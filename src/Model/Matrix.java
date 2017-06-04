@@ -74,11 +74,51 @@ public class Matrix {
         } else if (limit == result.getMatrixSize()) {
             return m1.multSch(m2);
         } else {
-//            Matrix inter1 = multStr(subtract(a.getQuarterMatrix(0, 1),
-//                    a.getQuarterMatrix(1, 1)), add(b.getQuarterMatrix(1,
-//                    0), b.getQuarterMatrix(1, 1)), limit);
-//            Matrix inter1 = m1.multStr(limit,    m1.getQuarterMatrix(0,1))
+            Matrix inter1 = m1.getQuarterMatrix(0, 1).subtr
+                    (m1.getQuarterMatrix(1, 1)).multStr
+                    (limit,m2.getQuarterMatrix(1,0).add(m2.getQuarterMatrix
+                            (1, 1)));
+            Matrix inter2 = m1.getQuarterMatrix(0, 0).add
+                    (m1.getQuarterMatrix(1, 1)).multStr
+                    (limit,m2.getQuarterMatrix(0,0).add(m2.getQuarterMatrix
+                            (1, 1)));
+            Matrix inter3 = m1.getQuarterMatrix(0, 0).subtr
+                    (m1.getQuarterMatrix(1, 0)).multStr
+                    (limit,m2.getQuarterMatrix(0,0).add(m2.getQuarterMatrix
+                            (0, 1)));
+            Matrix inter4 = m1.getQuarterMatrix(0, 0).add
+                    (m1.getQuarterMatrix(0, 1)).multStr
+                    (limit,m2.getQuarterMatrix(1,1));
+            Matrix inter5 = m1.getQuarterMatrix(0, 0).multStr(limit,
+                    m2.getQuarterMatrix(0, 1).subtr(m2.getQuarterMatrix(1,
+                     1)));
+            Matrix inter6 = m1.getQuarterMatrix(1, 1).multStr(limit,
+                    m2.getQuarterMatrix(1, 0).subtr(m2.getQuarterMatrix(0,
+                     0)));
+            Matrix inter7 = m1.getQuarterMatrix(1, 0).add
+                    (m1.getQuarterMatrix(1, 1)).multStr
+                    (limit,m2.getQuarterMatrix(0,0));
 
+            Matrix resultQuarter00 = inter1.add(inter2).subtr(inter4).add
+                    (inter6);
+            Matrix resultQuarter01 = inter4.add(inter5);
+            Matrix resultQuarter10 = inter6.add(inter7);
+            Matrix resultQuarter11 = inter2.subtr(inter3).add(inter5).subtr
+                    (inter7);
+
+            int halfSize = result.getMatrixSize()/2;
+            for (int i = 0; i < halfSize; i++) {
+                for (int j = 0; j < halfSize; j++) {
+                    result.setValue(i, j, resultQuarter00.getValue(i, j));
+                    result.setValue
+                            (i, j + halfSize, resultQuarter01.getValue(i, j));
+                    result.setValue
+                            (i + halfSize, j, resultQuarter10.getValue(i, j));
+                    result.setValue
+                            (i + halfSize, j + halfSize,
+                                    resultQuarter11.getValue(i, j));
+                }
+            }
         }
         return result;
     }
@@ -88,6 +128,16 @@ public class Matrix {
         for (int i = 0; i < result.getMatrixSize(); i++) {
             for (int j = 0; j < result.getMatrixSize(); j++) {
                 result.setValue(i, j, this.getValue(i, j) + m.getValue(i, j));
+            }
+        }
+        return result;
+    }
+
+    public Matrix subtr(Matrix m) {
+        Matrix result = new Matrix(this.getMatrixSize());
+        for (int i = 0; i < result.getMatrixSize(); i++) {
+            for (int j = 0; j < result.getMatrixSize(); j++) {
+                result.setValue(i, j, this.getValue(i, j) - m.getValue(i, j));
             }
         }
         return result;
