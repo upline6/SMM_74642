@@ -9,31 +9,31 @@
 //     * @param limit
 //     * @return
 //     */
-//    public Matrix multStrMethod (Matrix a, Matrix b, int limit) {
+//    public Matrix multStr (Matrix a, Matrix b, int limit) {
 //        Matrix result = new Matrix(a.getMatrixSize());
 //        if (limit == result.getMatrixSize()){ //evtl +1
-//            multSchoolMethod(a, b);
+//            multSch(a, b);
 //        } else {
-//            Matrix inter1 = multStrMethod(subtract(a.getQuarterMatrix(0, 1),
+//            Matrix inter1 = multStr(subtract(a.getQuarterMatrix(0, 1),
 //                    a.getQuarterMatrix(1, 1)), add(b.getQuarterMatrix(1,
 //                    0), b.getQuarterMatrix(1, 1)), limit);
-//            Matrix inter2 = multStrMethod(add(a.getQuarterMatrix(0, 0), a
+//            Matrix inter2 = multStr(add(a.getQuarterMatrix(0, 0), a
 //                            .getQuarterMatrix(1, 1)), add(b.getQuarterMatrix
 //                            (0, 0), b.getQuarterMatrix(1, 1)),
 //                    limit);
-//            Matrix inter3 = multStrMethod(subtract(a.getQuarterMatrix(0, 0)
+//            Matrix inter3 = multStr(subtract(a.getQuarterMatrix(0, 0)
 //                    , a.getQuarterMatrix(1, 0)), add(b.getQuarterMatrix(0,
 //                    0), b.getQuarterMatrix(0, 1)), limit);
-//            Matrix inter4 = multStrMethod(add(a.getQuarterMatrix(0, 0), a
+//            Matrix inter4 = multStr(add(a.getQuarterMatrix(0, 0), a
 //                    .getQuarterMatrix(0, 1)),b.getQuarterMatrix(1, 1),
 //                    limit);
-//            Matrix inter5 = multStrMethod(a.getQuarterMatrix(0, 0),
+//            Matrix inter5 = multStr(a.getQuarterMatrix(0, 0),
 //                    subtract(b.getQuarterMatrix(0, 1), b.getQuarterMatrix
 //                            (1, 1)),limit);
-//            Matrix inter6 = multStrMethod(a.getQuarterMatrix(1, 1),
+//            Matrix inter6 = multStr(a.getQuarterMatrix(1, 1),
 //                    subtract(b.getQuarterMatrix(1, 0), b.getQuarterMatrix
 //                            (0, 0)), limit);
-//            Matrix inter7 = multStrMethod(add(a.getQuarterMatrix(1, 0), a
+//            Matrix inter7 = multStr(add(a.getQuarterMatrix(1, 0), a
 //                    .getQuarterMatrix(1, 1)), b.getQuarterMatrix(0, 0),
 //                    limit);
 //            Matrix resultQuarter00 = subtract(add(add(inter1, inter2),inter6)

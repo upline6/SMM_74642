@@ -1,7 +1,5 @@
 package Model;
 
-import static javafx.scene.input.KeyCode.M;
-
 public class Matrix {
 
     private int matrixSize;
@@ -46,7 +44,7 @@ public class Matrix {
      * @param m
      * @return
      */
-    public Matrix multSchoolMethod(Matrix m) {
+    public Matrix multSch(Matrix m) {
         Matrix result = new Matrix(this.getMatrixSize());
 //        if (this.getMatrixSize() != m.getMatrixSize()) {
 //
@@ -67,16 +65,40 @@ public class Matrix {
      * @param m
      * @return
      */
-//    public Matrix multStrassenMethod(int useSchoolMethod, Matrix m) {
-//        Matrix result = new Matrix(this.getMatrixSize());
-//        this = new M
-//
-//    }
+    public Matrix multStr(int limit, Matrix m) {
+        Matrix result = new Matrix(this.getMatrixSize());
+        Matrix m1 = expandMatrix(this);
+        Matrix m2 = expandMatrix(m);
+        if (m1.getMatrixSize() != m2.getMatrixSize()) {
+            return null;
+        } else if (limit == result.getMatrixSize()) {
+            return m1.multSch(m2);
+        } else {
+//            Matrix inter1 = multStr(subtract(a.getQuarterMatrix(0, 1),
+//                    a.getQuarterMatrix(1, 1)), add(b.getQuarterMatrix(1,
+//                    0), b.getQuarterMatrix(1, 1)), limit);
+//            Matrix inter1 = m1.multStr(limit,    m1.getQuarterMatrix(0,1))
+
+        }
+        return result;
+    }
+
+    public Matrix add(Matrix m) {
+        Matrix result = new Matrix(this.getMatrixSize());
+        for (int i = 0; i < result.getMatrixSize(); i++) {
+            for (int j = 0; j < result.getMatrixSize(); j++) {
+                result.setValue(i, j, this.getValue(i, j) + m.getValue(i, j));
+            }
+        }
+        return result;
+    }
 
     /**
-     *
-     * @param m
-     * @return
+     * This method takes a matrix and returns a matrix that has a size to the
+     * power of two. The content of the input matrix is filled into the return
+     * matrix with any new cells containing zeros.
+     * @param m the input matrix with any size
+     * @return a matrix object with the size to the power of two
      */
     public Matrix expandMatrix(Matrix m) {
         Matrix result = new Matrix(nextPowerOfTwo(m.getMatrixSize()));
@@ -98,8 +120,7 @@ public class Matrix {
      * @param i: input number
      * @return next bigger integer to the base 2
      */
-
-    public int nextPowerOfTwo(int i) {
+    public static int nextPowerOfTwo(int i) {
         int powerTwo = (int) Math.pow(2, Math.ceil(Math.log(i) / Math.log
                 (2)));
         return powerTwo;
@@ -116,7 +137,7 @@ public class Matrix {
                 result.setValue(i, j, this.getValue
                         (i + (row * result.getMatrixSize()), j + (column *
                                 result.getMatrixSize())));
-                System.out.print(result.getValue(i, j) + " ");
+//                System.out.print(result.getValue(i, j) + " ");
             }
         }
         return result;

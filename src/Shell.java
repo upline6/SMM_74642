@@ -21,7 +21,7 @@ public final class Shell {
 //        Matrix m3;
 ////
 ////        MatrixOperations mo = new MatrixOperations();
-////        m3 = mo.multStrMethod(m1, m2, 2);
+////        m3 = mo.multStr(m1, m2, 2);
 ////        m3.printMatrix();
 //        // test end
 
