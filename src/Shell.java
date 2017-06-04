@@ -32,6 +32,7 @@ public final class Shell {
 
     private static void execute(BufferedReader inRead) throws IOException{
         boolean quit = false;
+        boolean verbose = false;
         while (!quit) {
             System.out.print("smm> ");
             String input = inRead.readLine();
@@ -46,29 +47,80 @@ public final class Shell {
                     case 'h':
                         helpMessage();
                         break;
+                    case 'v':
+                        if (scanner.hasNext()) {
+                            String nextParam = scanner.next().toLowerCase();
+                            switch (nextParam) {
+                                case "on":
+                                    verbose = true;
+                                    break;
+                                case "off":
+                                    verbose = false;
+                                    break;
+                                default:
+                                    errorMessage("Please enter either on or " +
+                                            "off.");
+                            }
+                        } else {
+                            errorMessage("Please enter either on or off.");
+                        }
+                        break;
                     case 'm':
-                        int matrixSizes = scanner.nextInt();
-                        int limit = scanner.nextInt();
-                        int xa = scanner.nextInt();
-                        int xb = scanner.nextInt();
-                        int ya = scanner.nextInt();
-                        int yb = scanner.nextInt();
+                        int matrixSizes;
+                        int limit;
+                        int xa;
+                        int xb;
+                        int ya;
+                        int yb;
+                        if (scanner.hasNextInt()) {
+                            matrixSizes = scanner.nextInt();
+                        } else {
+                            errorMessage("This function needs 6 integers to " +
+                                    "work with.");
+                            break;
+                        } if (scanner.hasNextInt()) {
+                            limit = scanner.nextInt();
+                        } else {
+                            errorMessage("This function needs 6 integers to " +
+                                    "work with.");
+                            break;
+                        } if (scanner.hasNextInt()) {
+                            xa = scanner.nextInt();
+                        } else {
+                            errorMessage("This function needs 6 integers to " +
+                                    "work with.");
+                            break;
+                        } if (scanner.hasNextInt()) {
+                            xb = scanner.nextInt();
+                        } else {
+                            errorMessage("This function needs 6 integers to " +
+                                    "work with.");
+                            break;
+                        } if (scanner.hasNextInt()) {
+                            ya = scanner.nextInt();
+                        } else {
+                            errorMessage("This function needs 6 integers to " +
+                                    "work with.");
+                            break;
+                        } if (scanner.hasNextInt()) {
+                            yb = scanner.nextInt();
+                        } else {
+                            errorMessage("This function needs 6 integers to " +
+                                    "work with.");
+                            break;
+                        }
                         Matrix matrixA = new Matrix(matrixSizes);
-                        for(int i = 0; i < matrixA.getMatrixSize(); i++) {
+                        for (int i = 0; i < matrixA.getMatrixSize(); i++) {
                             for (int j = 0; j < matrixA.getMatrixSize(); j++) {
-                                matrixA.setValue(i, j, i*xa + j*xb);
+                                matrixA.setValue(i, j, i * xa + j * xb);
                             }
                         }
-                        matrixA.printMatrix();
                         Matrix matrixB = new Matrix(matrixSizes);
-                        for(int i = 0; i < matrixB.getMatrixSize(); i++) {
+                        for (int i = 0; i < matrixB.getMatrixSize(); i++) {
                             for (int j = 0; j < matrixB.getMatrixSize(); j++) {
-                                matrixB.setValue(i, j, i*ya + j*yb);
+                                matrixB.setValue(i, j, i * ya + j * yb);
                             }
                         }
-                        System.out.println();
-                        matrixB.printMatrix();
-                        System.out.println();
                         Matrix matrixC = matrixA.multStr(limit, matrixB);
                         matrixC.printMatrix();
                         break;

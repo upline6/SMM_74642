@@ -4,17 +4,31 @@ public class Matrix {
 
     private int matrixSize;
     private double[][] matrixContent;
+    private boolean verbose;
 
     public Matrix(int size) {
         matrixSize = size;
         matrixContent = new double[matrixSize][matrixSize];
     }
 
+    /**
+     * This method takes a number i and computes the next bigger integer that
+     * is 2^n.
+     *
+     * @param i: input number
+     * @return next bigger integer to the base 2
+     */
+    public static int nextPowerOfTwo(int i) {
+        int powerTwo = (int) Math.pow(2, Math.ceil(Math.log(i) / Math.log
+                (2)));
+        return powerTwo;
+    }
+
     public int getMatrixSize() {
         return matrixSize;
     }
 
-    public double getValue(int row, int column) {
+    private double getValue(int row, int column) {
         return matrixContent[row][column];
     }
 
@@ -24,6 +38,21 @@ public class Matrix {
 
     private void addToValue(int row, int column, double value) {
         matrixContent[row][column] += value;
+    }
+
+    /**
+     * @return
+     */
+    private Matrix getQuarterMatrix(int row, int column) {
+        Matrix result = new Matrix(this.getMatrixSize() / 2);
+        for (int i = 0; i < result.getMatrixSize(); i++) {
+            for (int j = 0; j < result.getMatrixSize(); j++) {
+                result.setValue(i, j, this.getValue
+                        (i + (row * result.getMatrixSize()), j + (column *
+                                result.getMatrixSize())));
+            }
+        }
+        return result;
     }
 
     public void printMatrix() {
@@ -40,15 +69,14 @@ public class Matrix {
     }
 
     /**
-     * if condition noch einbauen, private machen
      * @param m
      * @return
      */
-    public Matrix multSch(Matrix m) {
+    private Matrix multSch(Matrix m) {
         Matrix result = new Matrix(this.getMatrixSize());
-//        if (this.getMatrixSize() != m.getMatrixSize()) {
-//
-//        }
+        if (this.getMatrixSize() != m.getMatrixSize()) {
+            return null;
+        }
         for (int i = 0; i < result.getMatrixSize(); i++) {
             for (int j = 0; j < result.getMatrixSize(); j++)
                 for (int k = 0; k < result.getMatrixSize(); k++) {
@@ -56,19 +84,17 @@ public class Matrix {
                             (i, j, this.getValue(i, k) * m.getValue(k, j));
                 }
         }
-        System.out.println("School Method used!");
         return result;
     }
 
     /**
-     * if Methode einbauen
      * @param m
      * @return
      */
     public Matrix multStr(int limit, Matrix m) {
-        Matrix result = new Matrix(this.getMatrixSize());
         Matrix m1 = expandMatrix(this);
         Matrix m2 = expandMatrix(m);
+        Matrix result = new Matrix(m1.getMatrixSize());
         if (m1.getMatrixSize() != m2.getMatrixSize()) {
             return null;
         } else if (limit == result.getMatrixSize()) {
@@ -76,28 +102,28 @@ public class Matrix {
         } else {
             Matrix inter1 = m1.getQuarterMatrix(0, 1).subtr
                     (m1.getQuarterMatrix(1, 1)).multStr
-                    (limit,m2.getQuarterMatrix(1,0).add(m2.getQuarterMatrix
+                    (limit, m2.getQuarterMatrix(1, 0).add(m2.getQuarterMatrix
                             (1, 1)));
             Matrix inter2 = m1.getQuarterMatrix(0, 0).add
                     (m1.getQuarterMatrix(1, 1)).multStr
-                    (limit,m2.getQuarterMatrix(0,0).add(m2.getQuarterMatrix
+                    (limit, m2.getQuarterMatrix(0, 0).add(m2.getQuarterMatrix
                             (1, 1)));
             Matrix inter3 = m1.getQuarterMatrix(0, 0).subtr
                     (m1.getQuarterMatrix(1, 0)).multStr
-                    (limit,m2.getQuarterMatrix(0,0).add(m2.getQuarterMatrix
+                    (limit, m2.getQuarterMatrix(0, 0).add(m2.getQuarterMatrix
                             (0, 1)));
             Matrix inter4 = m1.getQuarterMatrix(0, 0).add
                     (m1.getQuarterMatrix(0, 1)).multStr
-                    (limit,m2.getQuarterMatrix(1,1));
+                    (limit, m2.getQuarterMatrix(1, 1));
             Matrix inter5 = m1.getQuarterMatrix(0, 0).multStr(limit,
                     m2.getQuarterMatrix(0, 1).subtr(m2.getQuarterMatrix(1,
-                     1)));
+                            1)));
             Matrix inter6 = m1.getQuarterMatrix(1, 1).multStr(limit,
                     m2.getQuarterMatrix(1, 0).subtr(m2.getQuarterMatrix(0,
-                     0)));
+                            0)));
             Matrix inter7 = m1.getQuarterMatrix(1, 0).add
                     (m1.getQuarterMatrix(1, 1)).multStr
-                    (limit,m2.getQuarterMatrix(0,0));
+                    (limit, m2.getQuarterMatrix(0, 0));
 
             Matrix resultQuarter00 = inter1.add(inter2).subtr(inter4).add
                     (inter6);
@@ -106,7 +132,7 @@ public class Matrix {
             Matrix resultQuarter11 = inter2.subtr(inter3).add(inter5).subtr
                     (inter7);
 
-            int halfSize = result.getMatrixSize()/2;
+            int halfSize = result.getMatrixSize() / 2;
             for (int i = 0; i < halfSize; i++) {
                 for (int j = 0; j < halfSize; j++) {
                     result.setValue(i, j, resultQuarter00.getValue(i, j));
@@ -119,11 +145,15 @@ public class Matrix {
                                     resultQuarter11.getValue(i, j));
                 }
             }
+            result = trimMatrix(result, result.getMatrixSize() -
+                    this.getMatrixSize());
+            result.printMatrix();
+            System.out.println();
         }
         return result;
     }
 
-    public Matrix add(Matrix m) {
+    private Matrix add(Matrix m) {
         Matrix result = new Matrix(this.getMatrixSize());
         for (int i = 0; i < result.getMatrixSize(); i++) {
             for (int j = 0; j < result.getMatrixSize(); j++) {
@@ -133,7 +163,7 @@ public class Matrix {
         return result;
     }
 
-    public Matrix subtr(Matrix m) {
+    private Matrix subtr(Matrix m) {
         Matrix result = new Matrix(this.getMatrixSize());
         for (int i = 0; i < result.getMatrixSize(); i++) {
             for (int j = 0; j < result.getMatrixSize(); j++) {
@@ -147,13 +177,14 @@ public class Matrix {
      * This method takes a matrix and returns a matrix that has a size to the
      * power of two. The content of the input matrix is filled into the return
      * matrix with any new cells containing zeros.
+     *
      * @param m the input matrix with any size
      * @return a matrix object with the size to the power of two
      */
-    public Matrix expandMatrix(Matrix m) {
+    private Matrix expandMatrix(Matrix m) {
         Matrix result = new Matrix(nextPowerOfTwo(m.getMatrixSize()));
-        for(int i = 0; i < result.getMatrixSize(); i++) {
-            for(int j = 0; j < result.getMatrixSize(); j++) {
+        for (int i = 0; i < result.getMatrixSize(); i++) {
+            for (int j = 0; j < result.getMatrixSize(); j++) {
                 if (j < m.getMatrixSize() && i < m.getMatrixSize()) {
                     result.setValue(i, j, m.getValue(i, j));
                 } else {
@@ -164,32 +195,14 @@ public class Matrix {
         return result;
     }
 
-    /**
-     * This method takes a number i and computes the next bigger integer that
-     * is 2^n.
-     * @param i: input number
-     * @return next bigger integer to the base 2
-     */
-    public static int nextPowerOfTwo(int i) {
-        int powerTwo = (int) Math.pow(2, Math.ceil(Math.log(i) / Math.log
-                (2)));
-        return powerTwo;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Matrix getQuarterMatrix(int row, int column) {
-        Matrix result = new Matrix(this.getMatrixSize() / 2);
-        for(int i = 0; i < result.getMatrixSize(); i++) {
+    private Matrix trimMatrix(Matrix m, int cutSize) {
+        Matrix result = new Matrix(m.getMatrixSize() - cutSize);
+        for (int i = 0; i < result.getMatrixSize(); i++) {
             for (int j = 0; j < result.getMatrixSize(); j++) {
-                result.setValue(i, j, this.getValue
-                        (i + (row * result.getMatrixSize()), j + (column *
-                                result.getMatrixSize())));
-//                System.out.print(result.getValue(i, j) + " ");
+                result.setValue(i, j, m.getValue(i, j));
             }
         }
         return result;
     }
+
 }

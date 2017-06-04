@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcbb0cb4-cbfa-4838-9aea-4bf78e5543a2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/MatrixOperations.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SMM_74642/Model/Matrix.class" afterPath="$PROJECT_DIR$/out/production/SMM_74642/Model/Matrix.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SMM_74642/Shell.class" afterPath="$PROJECT_DIR$/out/production/SMM_74642/Shell.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Matrix.java" afterPath="$PROJECT_DIR$/src/Model/Matrix.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Shell.java" afterPath="$PROJECT_DIR$/src/Shell.java" />
@@ -30,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Shell.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Shell.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Shell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="71" column="62" lean-forward="false" selection-start-line="71" selection-start-column="62" selection-end-line="71" selection-end-column="62" />
+            <state relative-caret-position="945">
+              <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,19 +43,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Matrix.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Matrix.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Matrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="119" column="17" lean-forward="true" selection-start-line="119" selection-start-column="17" selection-end-line="119" selection-end-column="17" />
+            <state relative-caret-position="-2047">
+              <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
               <folding>
-                <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-                <element signature="method#add#0;class#Matrix#0" expanded="false" />
-                <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
                 <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-                <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-                <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-                <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -88,8 +83,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/Model/MatrixOperations.java" />
         <option value="$PROJECT_DIR$/src/Model/Matrix.kt" />
-        <option value="$PROJECT_DIR$/src/Shell.java" />
         <option value="$PROJECT_DIR$/src/Model/Matrix.java" />
+        <option value="$PROJECT_DIR$/src/Shell.java" />
       </list>
     </option>
   </component>
@@ -641,7 +636,7 @@
       <workItem from="1496150449705" duration="986000" />
       <workItem from="1496228597131" duration="4038000" />
       <workItem from="1496424286074" duration="287000" />
-      <workItem from="1496478775467" duration="21362000" />
+      <workItem from="1496478775467" duration="31551000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1496230153218</created>
@@ -692,11 +687,18 @@
       <option name="project" value="LOCAL" />
       <updated>1496567029649</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="finished multStr method">
+      <created>1496571791673</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1496571791673</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86579000" />
+    <option name="totallyTimeSpent" value="96768000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -717,7 +719,7 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -782,21 +784,12 @@
     <MESSAGE value="implemented expandMatrix" />
     <MESSAGE value="documented nextPowerOfTwo method" />
     <MESSAGE value="added add method" />
-    <option name="LAST_COMMIT_MESSAGE" value="added add method" />
+    <MESSAGE value="finished multStr method" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished multStr method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Model/Matrix.java</url>
-          <line>67</line>
-          <properties class="Model.Matrix" method="multStr">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="15" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -832,13 +825,7 @@
         <state relative-caret-position="646">
           <caret line="40" column="4" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
           <folding>
-            <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-            <element signature="method#add#0;class#Matrix#0" expanded="false" />
-            <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -866,13 +853,7 @@
         <state relative-caret-position="646">
           <caret line="40" column="4" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
           <folding>
-            <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-            <element signature="method#add#0;class#Matrix#0" expanded="false" />
-            <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -900,13 +881,7 @@
         <state relative-caret-position="527">
           <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding>
-            <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-            <element signature="method#add#0;class#Matrix#0" expanded="false" />
-            <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -934,13 +909,7 @@
         <state relative-caret-position="527">
           <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding>
-            <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-            <element signature="method#add#0;class#Matrix#0" expanded="false" />
-            <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -968,13 +937,7 @@
         <state relative-caret-position="527">
           <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding>
-            <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-            <element signature="method#add#0;class#Matrix#0" expanded="false" />
-            <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1002,13 +965,7 @@
         <state relative-caret-position="527">
           <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding>
-            <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-            <element signature="method#add#0;class#Matrix#0" expanded="false" />
-            <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1036,13 +993,7 @@
         <state relative-caret-position="527">
           <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding>
-            <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-            <element signature="method#add#0;class#Matrix#0" expanded="false" />
-            <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1062,13 +1013,7 @@
         <state relative-caret-position="1479">
           <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
-            <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-            <element signature="method#add#0;class#Matrix#0" expanded="false" />
-            <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1104,13 +1049,7 @@
         <state relative-caret-position="816">
           <caret line="87" column="57" lean-forward="false" selection-start-line="87" selection-start-column="57" selection-end-line="87" selection-end-column="57" />
           <folding>
-            <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-            <element signature="method#add#0;class#Matrix#0" expanded="false" />
-            <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1138,13 +1077,7 @@
         <state relative-caret-position="425">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-            <element signature="method#add#0;class#Matrix#0" expanded="false" />
-            <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1179,13 +1112,7 @@
         <state relative-caret-position="527">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
-            <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-            <element signature="method#add#0;class#Matrix#0" expanded="false" />
-            <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1239,28 +1166,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Shell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="71" column="62" lean-forward="false" selection-start-line="71" selection-start-column="62" selection-end-line="71" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+    <entry file="uml://JAVA/Model.Matrix">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Model.Matrix</OriginalElement>
+          <nodes>
+            <node x="-56.0" y="9.0">Model.Matrix</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="40.5" y="14.5" />
+          <SelectedNodes>
+            <node>Model.Matrix</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="119" column="17" lean-forward="true" selection-start-line="119" selection-start-column="17" selection-end-line="119" selection-end-column="17" />
+        <state relative-caret-position="-2047">
+          <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
           <folding>
-            <element signature="method#multSch#0;class#Matrix#0" expanded="false" />
-            <element signature="method#add#0;class#Matrix#0" expanded="false" />
-            <element signature="method#subtr#0;class#Matrix#0" expanded="false" />
             <element signature="docComment;method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="method#expandMatrix#0;class#Matrix#0" expanded="false" />
-            <element signature="docComment;method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
-            <element signature="method#nextPowerOfTwo#0;class#Matrix#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="73" column="30" lean-forward="false" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
