@@ -36,17 +36,18 @@ public final class Shell {
                             switch (nextParam) {
                                 case "on":
                                     verbose = true;
-
+                                    printVerbose(verbose);
                                     break;
                                 case "off":
                                     verbose = false;
+                                    printVerbose(verbose);
                                     break;
                                 default:
                                     errorMessage("Please enter either on or " +
                                             "off.");
                             }
                         } else {
-                            errorMessage("Please enter either on or off.");
+                            printVerbose(verbose);
                         }
                         break;
                     case 'm':
@@ -105,10 +106,13 @@ public final class Shell {
                                 matrixB.setValue(i, j, i * ya + j * yb);
                             }
                         }
-                        Matrix matrixC = matrixA.multStr(limit, matrixB);
-                        matrixC.printMatrix();
+                        Matrix matrixC = matrixA.multStr(limit, matrixB, verbose);
+                        if (!verbose) {
+                            matrixC.printMatrix();
+                        }
                         break;
-                    default: errorMessage("Unknown command.");
+                    default: errorMessage("Unknown command. Try the help " +
+                            "command!");
                 }
             } else {
                 errorMessage("No command.");
@@ -118,6 +122,16 @@ public final class Shell {
 
     private static void errorMessage(String errorCause){
         System.out.println("Error! " + errorCause);
+    }
+
+    private static void printVerbose(boolean verb){
+        String onOrOff;
+        if (verb) {
+            onOrOff = "ON";
+        } else {
+            onOrOff = "OFF";
+        }
+        System.out.println("VERBOSE is set to: " + onOrOff);
     }
 
     private static void helpMessage(){

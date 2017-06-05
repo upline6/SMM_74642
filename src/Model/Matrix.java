@@ -4,7 +4,6 @@ public class Matrix {
 
     private int matrixSize;
     private double[][] matrixContent;
-    private boolean verbose = false;
 
     public Matrix(int size) {
         matrixSize = size;
@@ -18,10 +17,9 @@ public class Matrix {
      * @param i: input number
      * @return next bigger integer to the base 2
      */
-    public static int nextPowerOfTwo(int i) {
-        int powerTwo = (int) Math.pow(2, Math.ceil(Math.log(i) / Math.log
+    private static int nextPowerOfTwo(int i) {
+        return (int) Math.pow(2, Math.ceil(Math.log(i) / Math.log
                 (2)));
-        return powerTwo;
     }
 
     public int getMatrixSize() {
@@ -40,9 +38,6 @@ public class Matrix {
         matrixContent[row][column] += value;
     }
 
-    public void setVerbose(boolean verb) {
-        verbose = verb;
-    }
 
     /**
      * @return
@@ -76,7 +71,7 @@ public class Matrix {
      * @param m
      * @return
      */
-    private Matrix multSch(Matrix m) {
+    private Matrix multSch(Matrix m, boolean verbose) {
         Matrix result = new Matrix(this.getMatrixSize());
         if (this.getMatrixSize() != m.getMatrixSize()) {
             return null;
@@ -88,6 +83,10 @@ public class Matrix {
                             (i, j, this.getValue(i, k) * m.getValue(k, j));
                 }
         }
+        if (verbose) {
+            result.printMatrix();
+            System.out.println();
+        }
         return result;
     }
 
@@ -95,39 +94,39 @@ public class Matrix {
      * @param m
      * @return
      */
-    public Matrix multStr(int limit, Matrix m) {
+    public Matrix multStr(int limit, Matrix m, boolean verbose) {
         Matrix m1 = expandMatrix(this);
         Matrix m2 = expandMatrix(m);
         Matrix result = new Matrix(m1.getMatrixSize());
         if (m1.getMatrixSize() != m2.getMatrixSize()) {
             return null;
         } else if (limit == result.getMatrixSize()) {
-            return m1.multSch(m2);
+            return m1.multSch(m2, verbose);
         } else {
             Matrix inter1 = m1.getQuarterMatrix(0, 1).subtr
                     (m1.getQuarterMatrix(1, 1)).multStr
                     (limit, m2.getQuarterMatrix(1, 0).add(m2.getQuarterMatrix
-                            (1, 1)));
+                            (1, 1)), verbose);
             Matrix inter2 = m1.getQuarterMatrix(0, 0).add
                     (m1.getQuarterMatrix(1, 1)).multStr
                     (limit, m2.getQuarterMatrix(0, 0).add(m2.getQuarterMatrix
-                            (1, 1)));
+                            (1, 1)), verbose);
             Matrix inter3 = m1.getQuarterMatrix(0, 0).subtr
                     (m1.getQuarterMatrix(1, 0)).multStr
                     (limit, m2.getQuarterMatrix(0, 0).add(m2.getQuarterMatrix
-                            (0, 1)));
+                            (0, 1)), verbose);
             Matrix inter4 = m1.getQuarterMatrix(0, 0).add
                     (m1.getQuarterMatrix(0, 1)).multStr
-                    (limit, m2.getQuarterMatrix(1, 1));
+                    (limit, m2.getQuarterMatrix(1, 1), verbose);
             Matrix inter5 = m1.getQuarterMatrix(0, 0).multStr(limit,
                     m2.getQuarterMatrix(0, 1).subtr(m2.getQuarterMatrix(1,
-                            1)));
+                            1)), verbose);
             Matrix inter6 = m1.getQuarterMatrix(1, 1).multStr(limit,
                     m2.getQuarterMatrix(1, 0).subtr(m2.getQuarterMatrix(0,
-                            0)));
+                            0)), verbose);
             Matrix inter7 = m1.getQuarterMatrix(1, 0).add
                     (m1.getQuarterMatrix(1, 1)).multStr
-                    (limit, m2.getQuarterMatrix(0, 0));
+                    (limit, m2.getQuarterMatrix(0, 0), verbose);
 
             Matrix resultQuarter00 = inter1.add(inter2).subtr(inter4).add
                     (inter6);
@@ -151,8 +150,8 @@ public class Matrix {
             }
             result = trimMatrix(result, result.getMatrixSize() -
                     this.getMatrixSize());
-            result.printMatrix();
             if (verbose) {
+                result.printMatrix();
                 System.out.println();
             }
         }
