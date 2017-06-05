@@ -8,23 +8,6 @@ import java.util.Scanner;
 public final class Shell {
 
     public static void main(String[] args) throws IOException{
-//        // test
-//        m1.printMatrix();
-////        m1.printMatrix();
-////        m1.getQuarterMatrix(0, 0).printMatrix();
-////        m1.getQuarterMatrix(0, 1).printMatrix();
-////        m1.getQuarterMatrix(1, 0).printMatrix();
-////        m1.getQuarterMatrix(1, 1).printMatrix();
-//        Matrix m2 = new Matrix(4, 2, 3);
-//        m2.printMatrix();
-////        m2.printMatrix();
-//        Matrix m3;
-////
-////        MatrixOperations mo = new MatrixOperations();
-////        m3 = mo.multStr(m1, m2, 2);
-////        m3.printMatrix();
-//        // test end
-
         BufferedReader inRead =
                 new BufferedReader(new InputStreamReader(System.in));
         execute(inRead);
@@ -53,6 +36,7 @@ public final class Shell {
                             switch (nextParam) {
                                 case "on":
                                     verbose = true;
+
                                     break;
                                 case "off":
                                     verbose = false;

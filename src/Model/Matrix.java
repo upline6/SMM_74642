@@ -4,7 +4,7 @@ public class Matrix {
 
     private int matrixSize;
     private double[][] matrixContent;
-    private boolean verbose;
+    private boolean verbose = false;
 
     public Matrix(int size) {
         matrixSize = size;
@@ -38,6 +38,10 @@ public class Matrix {
 
     private void addToValue(int row, int column, double value) {
         matrixContent[row][column] += value;
+    }
+
+    public void setVerbose(boolean verb) {
+        verbose = verb;
     }
 
     /**
@@ -148,7 +152,9 @@ public class Matrix {
             result = trimMatrix(result, result.getMatrixSize() -
                     this.getMatrixSize());
             result.printMatrix();
-            System.out.println();
+            if (verbose) {
+                System.out.println();
+            }
         }
         return result;
     }
