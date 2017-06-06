@@ -148,11 +148,15 @@ public class Matrix {
 
     /**
      * This method takes another matrix object and returns the
-     * product of the two. It uses the algorithm of Volker Strassen which is
-     * faster than the school method but requires to have two quadratic
-     * matrices which sizes are to the same power of two.
+     * product of the two. It uses the algorithm by Volker Strassen which is
+     * faster than the school algorithm but requires to have two quadratic
+     * matrices which sizes are to the same power of two. The algorithm calls
+     * itself when solving a multiplication within the algorithm. Therefore
+     * it needs a limit at which multiplication is solved with the school
+     * method.
      *
-     * @param limit
+     * @param limit at which size of the matrix the multiplication should
+     *              call the school method to solve it
      * @param m the second matrix to multiply the matrix with
      * @param verbose binary value to determine if the result should be printed
      * @return  the result of the product as a matrix object, if the matrices
@@ -165,7 +169,7 @@ public class Matrix {
 
         if (m1.getMatrixSize() != m2.getMatrixSize()) {
             return null;
-        } else if (limit == result.getMatrixSize()) {
+        } else if (limit >= result.getMatrixSize()) {
             return m1.multSch(m2, verbose);
         } else {
             Matrix inter1 = m1.getQuarterMatrix(0, 1).subtr
@@ -185,7 +189,7 @@ public class Matrix {
                     (limit, m2.getQuarterMatrix(1, 1), verbose);
             Matrix inter5 = m1.getQuarterMatrix(0, 0).multStr(limit,
                     m2.getQuarterMatrix(0, 1).subtr(m2.getQuarterMatrix(1,
-                            1)), verbose);
+                             1)), verbose);
             Matrix inter6 = m1.getQuarterMatrix(1, 1).multStr(limit,
                     m2.getQuarterMatrix(1, 0).subtr(m2.getQuarterMatrix(0,
                             0)), verbose);

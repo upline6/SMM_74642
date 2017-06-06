@@ -96,6 +96,11 @@ public final class Shell {
                                     "work with.");
                             break;
                         }
+
+                        if (limit < 2) {
+                            errorMessage("Limit needs do be greater than 2.");
+                            break;
+                        }
                         Matrix matrixA = new Matrix(matrixSizes);
 
                         for (int i = 0; i < matrixA.getMatrixSize(); i++) {
