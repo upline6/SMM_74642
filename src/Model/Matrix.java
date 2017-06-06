@@ -30,7 +30,7 @@ public class Matrix {
      * Returns the value of a cell in the matrix. When given the row and the
      * column.
      *
-     * @param row first row starting at 0
+     * @param row    first row starting at 0
      * @param column first column starting at 0
      * @return the double value of the cell
      */
@@ -41,9 +41,9 @@ public class Matrix {
     /**
      * This method sets the value for a single specific cell in the matrix.
      *
-     * @param row first row starting at 0
+     * @param row    first row starting at 0
      * @param column first column starting at 0
-     * @param value the desired value of the cell
+     * @param value  the desired value of the cell
      */
     public void setValue(int row, int column, double value) {
         matrixContent[row][column] = value;
@@ -52,9 +52,9 @@ public class Matrix {
     /**
      * This method adds a value to an existing value in a cell in the matrix.
      *
-     * @param row first row starting at 0
+     * @param row    first row starting at 0
      * @param column first column starting at 0
-     * @param value the desired value which should be added to the cell
+     * @param value  the desired value which should be added to the cell
      */
     private void addToValue(int row, int column, double value) {
         matrixContent[row][column] += value;
@@ -71,10 +71,10 @@ public class Matrix {
      * - lower left: 1/0
      * - lower right: 1/1
      *
-     * @param row input coordinate for the desired quarter martix; see
-     *            description above
+     * @param row    input coordinate for the desired quarter martix; see
+     *               description above
      * @param column input coordinate for the desired quarter martix; see
-     *            description above
+     *               description above
      * @return the quarter of the matrix based on the coordinates, if wrong
      * the parameters are not 0 or 1 the method returns null.
      */
@@ -119,7 +119,7 @@ public class Matrix {
      * The verbose parameter allows result to be directly printed into the
      * console.
      *
-     * @param m the second matrix to multiply the matrix with
+     * @param m       the second matrix to multiply the matrix with
      * @param verbose binary value to determine if the result should be printed
      * @return the result of the product as a matrix object, if the matrices
      * do not have the same size it returns null.
@@ -155,11 +155,11 @@ public class Matrix {
      * it needs a limit at which multiplication is solved with the school
      * method.
      *
-     * @param limit at which size of the matrix the multiplication should
-     *              call the school method to solve it
-     * @param m the second matrix to multiply the matrix with
+     * @param limit   at which size of the matrix the multiplication should
+     *                call the school method to solve it
+     * @param m       the second matrix to multiply the matrix with
      * @param verbose binary value to determine if the result should be printed
-     * @return  the result of the product as a matrix object, if the matrices
+     * @return the result of the product as a matrix object, if the matrices
      * do not have the same size it returns null.
      */
     public Matrix multStr(int limit, Matrix m, boolean verbose) {
@@ -189,7 +189,7 @@ public class Matrix {
                     (limit, m2.getQuarterMatrix(1, 1), verbose);
             Matrix inter5 = m1.getQuarterMatrix(0, 0).multStr(limit,
                     m2.getQuarterMatrix(0, 1).subtr(m2.getQuarterMatrix(1,
-                             1)), verbose);
+                            1)), verbose);
             Matrix inter6 = m1.getQuarterMatrix(1, 1).multStr(limit,
                     m2.getQuarterMatrix(1, 0).subtr(m2.getQuarterMatrix(0,
                             0)), verbose);
@@ -300,7 +300,7 @@ public class Matrix {
      * previously inflated to a size of a power of two to be able to perform
      * a Strassen Multiplication on them.
      *
-     * @param m the matrix object to be trimmed
+     * @param m       the matrix object to be trimmed
      * @param cutSize the amount of rows and columns to be cut
      * @return a quadratic matrix object with a smaller size than the input
      */
@@ -314,5 +314,4 @@ public class Matrix {
         }
         return result;
     }
-
 }
