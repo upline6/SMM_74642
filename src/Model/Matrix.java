@@ -15,35 +15,76 @@ public class Matrix {
      * is 2^n.
      *
      * @param i: input number
-     * @return next bigger integer to the base 2
+     * @return next bigger integer to the power of two, returns the same as the
+     * input if it was already to the power of two
      */
     private static int nextPowerOfTwo(int i) {
-        return (int) Math.pow(2, Math.ceil(Math.log(i) / Math.log
-                (2)));
+        return (int) Math.pow(2, Math.ceil(Math.log(i) / Math.log(2)));
     }
 
     public int getMatrixSize() {
         return matrixSize;
     }
 
-    private double getValue(int row, int column) {
+    /**
+     * Returns the value of a cell in the matrix. When given the row and the
+     * column.
+     *
+     * @param row first row starting at 0
+     * @param column first column starting at 0
+     * @return the double value of the cell
+     */
+    public double getValue(int row, int column) {
         return matrixContent[row][column];
     }
 
+    /**
+     * This method sets the value for a single specific cell in the matrix.
+     *
+     * @param row first row starting at 0
+     * @param column first column starting at 0
+     * @param value the desired value of the cell
+     */
     public void setValue(int row, int column, double value) {
         matrixContent[row][column] = value;
     }
 
+    /**
+     * This method adds a value to an existing value in a cell in the matrix.
+     *
+     * @param row first row starting at 0
+     * @param column first column starting at 0
+     * @param value the desired value which should be added to the cell
+     */
     private void addToValue(int row, int column, double value) {
         matrixContent[row][column] += value;
     }
 
-
     /**
-     * @return
+     * This method returns a matrix which is a quadrant of the matrix. It is
+     * divided by two in both dimensions. The method is called only by
+     * matrices that are to the power of two, hence the division is always
+     * symmetrical.
+     * The quadrants are named as follows:
+     * - upper left: 0/0
+     * - upper right: 0/1
+     * - lower left: 1/0
+     * - lower right: 1/1
+     *
+     * @param row input coordinate for the desired quarter martix; see
+     *            description above
+     * @param column input coordinate for the desired quarter martix; see
+     *            description above
+     * @return the quarter of the matrix based on the coordinates, if wrong
+     * the parameters are not 0 or 1 the method returns null.
      */
     private Matrix getQuarterMatrix(int row, int column) {
+
+        if (row < 0 || row > 1 || column < 0 || column > 1) {
+            return null;
+        }
         Matrix result = new Matrix(this.getMatrixSize() / 2);
+
         for (int i = 0; i < result.getMatrixSize(); i++) {
             for (int j = 0; j < result.getMatrixSize(); j++) {
                 result.setValue(i, j, this.getValue
@@ -54,9 +95,14 @@ public class Matrix {
         return result;
     }
 
+    /**
+     * This method prints the matrix into the console.
+     */
     public void printMatrix() {
+
         for (int i = 0; i < matrixSize; i++) {
             for (int j = 0; j < matrixSize; j++) {
+
                 if (j != matrixSize - 1) { //check if is last in row
                     System.out.print(matrixContent[i][j] + " ");
                 } else {
@@ -68,14 +114,23 @@ public class Matrix {
     }
 
     /**
-     * @param m
-     * @return
+     * This method takes another matrix object and returns the
+     * product of the two. It uses the common algorithm taught in schools.
+     * The verbose parameter allows result to be directly printed into the
+     * console.
+     *
+     * @param m the second matrix to multiply the matrix with
+     * @param verbose binary value to determine if the result should be printed
+     * @return the result of the product as a matrix object, if the matrices
+     * do not have the same size it returns null.
      */
     private Matrix multSch(Matrix m, boolean verbose) {
         Matrix result = new Matrix(this.getMatrixSize());
+
         if (this.getMatrixSize() != m.getMatrixSize()) {
             return null;
         }
+
         for (int i = 0; i < result.getMatrixSize(); i++) {
             for (int j = 0; j < result.getMatrixSize(); j++)
                 for (int k = 0; k < result.getMatrixSize(); k++) {
@@ -83,6 +138,7 @@ public class Matrix {
                             (i, j, this.getValue(i, k) * m.getValue(k, j));
                 }
         }
+
         if (verbose) {
             result.printMatrix();
             System.out.println();
@@ -91,13 +147,22 @@ public class Matrix {
     }
 
     /**
-     * @param m
-     * @return
+     * This method takes another matrix object and returns the
+     * product of the two. It uses the algorithm of Volker Strassen which is
+     * faster than the school method but requires to have two quadratic
+     * matrices which sizes are to the same power of two.
+     *
+     * @param limit
+     * @param m the second matrix to multiply the matrix with
+     * @param verbose binary value to determine if the result should be printed
+     * @return  the result of the product as a matrix object, if the matrices
+     * do not have the same size it returns null.
      */
     public Matrix multStr(int limit, Matrix m, boolean verbose) {
         Matrix m1 = expandMatrix(this);
         Matrix m2 = expandMatrix(m);
         Matrix result = new Matrix(m1.getMatrixSize());
+
         if (m1.getMatrixSize() != m2.getMatrixSize()) {
             return null;
         } else if (limit == result.getMatrixSize()) {
@@ -136,6 +201,7 @@ public class Matrix {
                     (inter7);
 
             int halfSize = result.getMatrixSize() / 2;
+
             for (int i = 0; i < halfSize; i++) {
                 for (int j = 0; j < halfSize; j++) {
                     result.setValue(i, j, resultQuarter00.getValue(i, j));
@@ -150,6 +216,7 @@ public class Matrix {
             }
             result = trimMatrix(result, result.getMatrixSize() -
                     this.getMatrixSize());
+
             if (verbose) {
                 result.printMatrix();
                 System.out.println();
@@ -158,8 +225,16 @@ public class Matrix {
         return result;
     }
 
+    /**
+     * This method takes another matrix object and adds it to this object.
+     *
+     * @param m the matrix object to be added
+     * @return a matrix object which has the input matrix added from the
+     * matrix calling this method
+     */
     private Matrix add(Matrix m) {
         Matrix result = new Matrix(this.getMatrixSize());
+
         for (int i = 0; i < result.getMatrixSize(); i++) {
             for (int j = 0; j < result.getMatrixSize(); j++) {
                 result.setValue(i, j, this.getValue(i, j) + m.getValue(i, j));
@@ -168,8 +243,17 @@ public class Matrix {
         return result;
     }
 
+    /**
+     * This method takes another matrix object and subtracts it from the this
+     * object.
+     *
+     * @param m the matrix object to be subtracted
+     * @return a matrix object which has the input matrix subtracted from the
+     * matrix calling this method
+     */
     private Matrix subtr(Matrix m) {
         Matrix result = new Matrix(this.getMatrixSize());
+
         for (int i = 0; i < result.getMatrixSize(); i++) {
             for (int j = 0; j < result.getMatrixSize(); j++) {
                 result.setValue(i, j, this.getValue(i, j) - m.getValue(i, j));
@@ -180,14 +264,20 @@ public class Matrix {
 
     /**
      * This method takes a matrix and returns a matrix that has a size to the
-     * power of two. The content of the input matrix is filled into the return
+     * power of two. The content of the input matrix is copied into the return
      * matrix with any new cells containing zeros.
      *
-     * @param m the input matrix with any size
-     * @return a matrix object with the size to the power of two
+     * @param m the matrix object to be inflated
+     * @return a matrix object with the size to the power of two or the input
+     * matrix if it was already of a size to the power of two
      */
     private Matrix expandMatrix(Matrix m) {
+
+        if (m.getMatrixSize() == nextPowerOfTwo(m.getMatrixSize())) {
+            return m;
+        }
         Matrix result = new Matrix(nextPowerOfTwo(m.getMatrixSize()));
+
         for (int i = 0; i < result.getMatrixSize(); i++) {
             for (int j = 0; j < result.getMatrixSize(); j++) {
                 if (j < m.getMatrixSize() && i < m.getMatrixSize()) {
@@ -200,8 +290,19 @@ public class Matrix {
         return result;
     }
 
+    /**
+     * This method takes a matrix object and cuts the right side and the
+     * bottom by a give size. It is used to resize matrices that were
+     * previously inflated to a size of a power of two to be able to perform
+     * a Strassen Multiplication on them.
+     *
+     * @param m the matrix object to be trimmed
+     * @param cutSize the amount of rows and columns to be cut
+     * @return a quadratic matrix object with a smaller size than the input
+     */
     private Matrix trimMatrix(Matrix m, int cutSize) {
         Matrix result = new Matrix(m.getMatrixSize() - cutSize);
+
         for (int i = 0; i < result.getMatrixSize(); i++) {
             for (int j = 0; j < result.getMatrixSize(); j++) {
                 result.setValue(i, j, m.getValue(i, j));

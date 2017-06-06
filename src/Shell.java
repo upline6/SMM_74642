@@ -21,6 +21,7 @@ public final class Shell {
             String input = inRead.readLine();
             Scanner scanner = new Scanner(input);
             scanner.useDelimiter("\\s+");
+
             if (scanner.hasNext()) {
                 String command = scanner.next().toLowerCase();
                 switch (command.charAt(0)) {
@@ -57,6 +58,7 @@ public final class Shell {
                         int xb;
                         int ya;
                         int yb;
+
                         if (scanner.hasNextInt()) {
                             matrixSizes = scanner.nextInt();
                         } else {
@@ -95,12 +97,14 @@ public final class Shell {
                             break;
                         }
                         Matrix matrixA = new Matrix(matrixSizes);
+
                         for (int i = 0; i < matrixA.getMatrixSize(); i++) {
                             for (int j = 0; j < matrixA.getMatrixSize(); j++) {
                                 matrixA.setValue(i, j, i * xa + j * xb);
                             }
                         }
                         Matrix matrixB = new Matrix(matrixSizes);
+
                         for (int i = 0; i < matrixB.getMatrixSize(); i++) {
                             for (int j = 0; j < matrixB.getMatrixSize(); j++) {
                                 matrixB.setValue(i, j, i * ya + j * yb);
@@ -126,6 +130,7 @@ public final class Shell {
 
     private static void printVerbose(boolean verb){
         String onOrOff;
+
         if (verb) {
             onOrOff = "ON";
         } else {
