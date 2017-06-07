@@ -1,10 +1,18 @@
-package Model;
-
+/**
+ * This class is used to create and calculate with a matrix. The main
+ * purpose of it is to call the multStr method which multiplies two
+ * matrices. The class itself is a wrapper for a double array.
+ */
 public class Matrix {
 
     private int matrixSize;
     private double[][] matrixContent;
 
+    /**
+     * The constructor initializes an empty matrix with a given size.
+     *
+     * @param size of the new matrix
+     */
     public Matrix(int size) {
         matrixSize = size;
         matrixContent = new double[matrixSize][matrixSize];
@@ -14,7 +22,7 @@ public class Matrix {
      * This method takes a number i and computes the next bigger integer that
      * is 2^n.
      *
-     * @param i: input number
+     * @param i input number
      * @return next bigger integer to the power of two, returns the same as the
      * input if it was already to the power of two
      */
@@ -22,6 +30,13 @@ public class Matrix {
         return (int) Math.pow(2, Math.ceil(Math.log(i) / Math.log(2)));
     }
 
+    /**
+     * Calling this method returns the size of the array current matrix
+     * object. The field is always quadratic so this information is valid for
+     * rows and columns of this matrix.
+     *
+     * @return the length of the array in both dimensions as an integer
+     */
     public int getMatrixSize() {
         return matrixSize;
     }
@@ -87,9 +102,9 @@ public class Matrix {
 
         for (int i = 0; i < result.getMatrixSize(); i++) {
             for (int j = 0; j < result.getMatrixSize(); j++) {
-                result.setValue(i, j, this.getValue
-                        (i + (row * result.getMatrixSize()), j + (column *
-                                result.getMatrixSize())));
+                result.setValue(i, j, this.getValue(
+                        i + (row * result.getMatrixSize()), j + (column
+                                * result.getMatrixSize())));
             }
         }
         return result;
@@ -132,11 +147,12 @@ public class Matrix {
         }
 
         for (int i = 0; i < result.getMatrixSize(); i++) {
-            for (int j = 0; j < result.getMatrixSize(); j++)
+            for (int j = 0; j < result.getMatrixSize(); j++) {
                 for (int k = 0; k < result.getMatrixSize(); k++) {
-                    result.addToValue
-                            (i, j, this.getValue(i, k) * m.getValue(k, j));
+                    result.addToValue(
+                            i, j, this.getValue(i, k) * m.getValue(k, j));
                 }
+            }
         }
 
         if (verbose) {
@@ -172,54 +188,53 @@ public class Matrix {
         } else if (limit >= result.getMatrixSize()) {
             return m1.multSch(m2, verbose);
         } else {
-            Matrix inter1 = m1.getQuarterMatrix(0, 1).subtr
-                    (m1.getQuarterMatrix(1, 1)).multStr
-                    (limit, m2.getQuarterMatrix(1, 0).add(m2.getQuarterMatrix
-                            (1, 1)), verbose);
-            Matrix inter2 = m1.getQuarterMatrix(0, 0).add
-                    (m1.getQuarterMatrix(1, 1)).multStr
-                    (limit, m2.getQuarterMatrix(0, 0).add(m2.getQuarterMatrix
-                            (1, 1)), verbose);
-            Matrix inter3 = m1.getQuarterMatrix(0, 0).subtr
-                    (m1.getQuarterMatrix(1, 0)).multStr
-                    (limit, m2.getQuarterMatrix(0, 0).add(m2.getQuarterMatrix
-                            (0, 1)), verbose);
-            Matrix inter4 = m1.getQuarterMatrix(0, 0).add
-                    (m1.getQuarterMatrix(0, 1)).multStr
-                    (limit, m2.getQuarterMatrix(1, 1), verbose);
+            Matrix inter1 = m1.getQuarterMatrix(0, 1).subtr(
+                    m1.getQuarterMatrix(1, 1)).multStr(
+                            limit, m2.getQuarterMatrix(1, 0).add(
+                                    m2.getQuarterMatrix(1, 1)), verbose);
+            Matrix inter2 = m1.getQuarterMatrix(0, 0).add(
+                    m1.getQuarterMatrix(1, 1)).multStr(
+                            limit, m2.getQuarterMatrix(0, 0).add(
+                                    m2.getQuarterMatrix(1, 1)), verbose);
+            Matrix inter3 = m1.getQuarterMatrix(0, 0).subtr(
+                    m1.getQuarterMatrix(1, 0)).multStr(
+                            limit, m2.getQuarterMatrix(0, 0).add(
+                                    m2.getQuarterMatrix(0, 1)), verbose);
+            Matrix inter4 = m1.getQuarterMatrix(0, 0).add(
+                    m1.getQuarterMatrix(0, 1)).multStr(
+                            limit, m2.getQuarterMatrix(1, 1), verbose);
             Matrix inter5 = m1.getQuarterMatrix(0, 0).multStr(limit,
                     m2.getQuarterMatrix(0, 1).subtr(m2.getQuarterMatrix(1,
                             1)), verbose);
             Matrix inter6 = m1.getQuarterMatrix(1, 1).multStr(limit,
                     m2.getQuarterMatrix(1, 0).subtr(m2.getQuarterMatrix(0,
                             0)), verbose);
-            Matrix inter7 = m1.getQuarterMatrix(1, 0).add
-                    (m1.getQuarterMatrix(1, 1)).multStr
-                    (limit, m2.getQuarterMatrix(0, 0), verbose);
+            Matrix inter7 = m1.getQuarterMatrix(1, 0).add(
+                    m1.getQuarterMatrix(1, 1)).multStr(
+                            limit, m2.getQuarterMatrix(0, 0), verbose);
 
-            Matrix resultQuarter00 = inter1.add(inter2).subtr(inter4).add
-                    (inter6);
+            Matrix resultQuarter00 = inter1.add(inter2).subtr(
+                    inter4).add(inter6);
             Matrix resultQuarter01 = inter4.add(inter5);
             Matrix resultQuarter10 = inter6.add(inter7);
-            Matrix resultQuarter11 = inter2.subtr(inter3).add(inter5).subtr
-                    (inter7);
+            Matrix resultQuarter11 = inter2.subtr(inter3).add(
+                    inter5).subtr(inter7);
 
             int halfSize = result.getMatrixSize() / 2;
 
             for (int i = 0; i < halfSize; i++) {
                 for (int j = 0; j < halfSize; j++) {
                     result.setValue(i, j, resultQuarter00.getValue(i, j));
-                    result.setValue
-                            (i, j + halfSize, resultQuarter01.getValue(i, j));
-                    result.setValue
-                            (i + halfSize, j, resultQuarter10.getValue(i, j));
-                    result.setValue
-                            (i + halfSize, j + halfSize,
+                    result.setValue(i, j + halfSize,
+                            resultQuarter01.getValue(i, j));
+                    result.setValue(i + halfSize, j,
+                            resultQuarter10.getValue(i, j));
+                    result.setValue(i + halfSize, j + halfSize,
                                     resultQuarter11.getValue(i, j));
                 }
             }
-            result = trimMatrix(result, result.getMatrixSize() -
-                    this.getMatrixSize());
+            result = trimMatrix(result, result.getMatrixSize()
+                    - this.getMatrixSize());
 
             if (verbose) {
                 result.printMatrix();
